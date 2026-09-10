@@ -4,7 +4,7 @@ Site estático de uma página para o aniversário do Dom (24 de outubro de 2026)
 
 ## Trocar foto e cores
 
-- **Foto:** substitua [`assets/foto-dom.svg`](assets/foto-dom.svg) por uma imagem (JPG/PNG/WebP) com o mesmo nome **ou** atualize o `src` da foto no [`index.html`](index.html).
+- **Foto:** substitua [`assets/foto_perfil.jpeg`](assets/foto_perfil.jpeg) ou atualize o `src` da foto no [`index.html`](index.html).
 - **Cores e fontes:** edite as variáveis no começo de [`styles.css`](styles.css):
 
 ```css

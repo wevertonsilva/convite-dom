@@ -443,19 +443,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 12%;
-}
-
-.hero__esfera {
-  position: absolute;
-  right: -6%;
-  bottom: -2%;
-  z-index: 2;
-  width: 34%;
-  background: none;
-  clip-path: circle(38% at 50% 50%);
-  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.4));
-  animation: float-orb 4.5s ease-in-out infinite;
+  object-position: 48% 22%;
 }
 
 .kicker {
@@ -583,7 +571,7 @@ a {
   }
 
   .hero__sky {
-    object-position: center 28%;
+    object-position: center center;
   }
 }
 
@@ -611,7 +599,7 @@ a {
     width: 100%;
     height: auto;
     object-fit: contain;
-    object-position: center top;
+    object-position: center center;
     transform: none;
   }
 
@@ -653,6 +641,10 @@ a {
     height: 11rem;
     margin-inline: auto;
     flex: 0 0 11rem;
+  }
+
+  .hero__photo img {
+    object-position: 47% 20%;
   }
 
   .hero__copy {
@@ -1247,16 +1239,6 @@ html.js .reveal.is-in {
   }
 }
 
-@keyframes float-orb {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
 @keyframes drift {
   from {
     background-position: 0 0;
@@ -1302,7 +1284,6 @@ html.js .reveal.is-in {
 
   .aura,
   .aura--ring,
-  .hero__esfera,
   .hero__dust,
   .ki-beam,
   .finale-glow,
