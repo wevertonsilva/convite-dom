@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e36b12" />
+    <meta
+      name="description"
+      content="Você está convidado para o aniversário de 1 ano do Dom. Sábado, 24 de outubro de 2026, a partir das 15h."
+    />
+    <title>Dom · 1 ano</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Exo+2:wght@500;600;700;800&family=Outfit:wght@400;500;600;700&family=Rowdies:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#mensagem">Pular para o conteúdo</a>
+
+    <nav class="nav" aria-label="Seções do convite">
+      <div class="nav__inner">
+        <a class="nav__brand" href="#topo">
+          <span class="orb orb--1" aria-hidden="true"><i></i></span>
+          Dom
+        </a>
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span class="nav__toggle-bar"></span>
+          <span class="sr-only">Abrir menu</span>
+        </button>
+        <ul class="nav__list" id="nav-menu">
+          <li><a href="#mensagem">Mensagem</a></li>
+          <li><a href="#grande-dia">O Grande Dia</a></li>
+          <li><a href="#rsvp">RSVP</a></li>
+          <li><a href="#recados">Recadinhos</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="hero" id="topo">
+      <div class="hero__bg" aria-hidden="true">
+        <img
+          class="hero__sky"
+          src="assets/kamehameha-01.webp"
+          alt=""
+          width="2200"
+          height="1238"
+          fetchpriority="high"
+        />
+        <div class="hero__veil"></div>
+        <div class="hero__speed"></div>
+        <div class="hero__dust"></div>
+      </div>
+
+      <div class="hero__layout">
+        <div class="hero__portrait">
+          <div class="aura" aria-hidden="true"></div>
+          <div class="aura aura--ring" aria-hidden="true"></div>
+          <figure class="hero__photo">
+            <img
+              src="assets/Foto_DOM.jpeg"
+              alt="Foto do Dom"
+              width="640"
+              height="846"
+            />
+          </figure>
+          <img
+            class="hero__esfera"
+            src="assets/esfera-1.png"
+            alt=""
+            width="160"
+            height="160"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div class="hero__copy">
+          <p class="kicker">Uma nova aventura começa</p>
+          <div class="hero__title-row">
+            <h1 class="hero__name">Dom</h1>
+            <p class="hero__age">
+              <span class="hero__age-num">1</span>
+              <span class="hero__age-label">ano</span>
+            </p>
+          </div>
+          <p class="hero__date">Sábado, 24 de outubro de 2026 · 15h</p>
+          <!-- <a class="btn btn--ki" href="#rsvp">Aceitar o convite</a> -->
+        </div>
+      </div>
+
+      <div class="ki-beam" aria-hidden="true"></div>
+    </header>
+
+    <main>
+      <section class="section section--intro" id="mensagem">
+        <div class="section__inner reveal">
+          <p class="section__label">
+            <span class="orb orb--2" aria-hidden="true"><i></i><i></i></span>
+            Transmissão
+          </p>
+          <h2>Meu aniversário já está aí!</h2>
+          <p class="lead">
+            Você está convidado para um dia de muita diversão. Venha curtir
+            comigo e participar desse momento tão especial!
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--quest" id="grande-dia">
+        <div class="section__bg" aria-hidden="true">
+          <img src="assets/horizon.png" alt="" width="1376" height="768" loading="lazy" />
+        </div>
+        <div class="section__inner reveal">
+          <p class="section__label">
+            <span class="orb orb--3" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+            Coordenadas
+          </p>
+          <h2>O Grande Dia</h2>
+
+          <div class="intel">
+            <article class="intel__card">
+              <h3>Quando</h3>
+              <p>Sábado, 24 de outubro de 2026</p>
+              <p class="intel__meta">A partir das 15:00</p>
+            </article>
+            <article class="intel__card">
+              <h3>Onde</h3>
+              <p>
+                Avenida Ulysses Guimarães, 151<br />
+                Condomínio Sol Nascente — Sussuarana<br />
+                Salvador — BA, 41213-000
+              </p>
+            </article>
+          </div>
+
+          <div class="map-wrap">
+            <h3>Mapa do local</h3>
+            <div class="radar">
+              <div class="radar__knob" aria-hidden="true"></div>
+              <div class="radar__shell">
+                <span class="radar__rivet radar__rivet--tl" aria-hidden="true"></span>
+                <span class="radar__rivet radar__rivet--tr" aria-hidden="true"></span>
+                <span class="radar__rivet radar__rivet--bl" aria-hidden="true"></span>
+                <span class="radar__rivet radar__rivet--br" aria-hidden="true"></span>
+                <div class="radar__screen">
+                  <iframe
+                    class="map"
+                    title="Mapa do local da festa"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    src="https://maps.google.com/maps?q=Avenida%20Ulysses%20Guimar%C3%A3es%2C%20151%2C%20Condom%C3%ADnio%20Sol%20Nascente%2C%20Sussuarana%2C%20Salvador%20-%20BA%2C%2041213-000&z=16&output=embed"
+                  ></iframe>
+                  <div class="radar__overlay" aria-hidden="true">
+                    <div class="radar__grid"></div>
+                    <div class="radar__cross"></div>
+                    <div class="radar__sweep"></div>
+                    <span class="radar__blip"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              class="btn btn--ghost"
+              href="https://www.google.com/maps/dir/?api=1&destination=Avenida%20Ulysses%20Guimar%C3%A3es%2C%20151%2C%20Condom%C3%ADnio%20Sol%20Nascente%2C%20Sussuarana%2C%20Salvador%20-%20BA"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver direções
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--finale cta" aria-labelledby="cta-title">
+        <div class="finale-glow" aria-hidden="true"></div>
+        <div class="section__inner reveal">
+          <p class="section__label">
+            <span class="orb orb--6" aria-hidden="true"
+              ><i></i><i></i><i></i><i></i><i></i><i></i
+            ></span>
+            Poder máximo
+          </p>
+          <h2 id="cta-title">Quero muito te ver neste dia especial!</h2>
+          <!-- <p>
+            Se chegou até aqui e ainda não confirmou sua presença, volta um
+            pouquinho e confirma.
+          </p> -->
+          <br>
+          <a class="btn btn--ki" href="#rsvp">Confirmar presença</a>
+        </div>
+      </section>
+
+      <section class="section section--charge" id="rsvp">
+        <div class="section__inner reveal">
+          <p class="section__label">
+            <span class="orb orb--4" aria-hidden="true"
+              ><i></i><i></i><i></i><i></i
+            ></span>
+            Chamada
+          </p>
+          <h2>Você está pronto para essa aventura?</h2>
+          <p class="lead">
+            24/10/2026 · Sábado, a partir das 15:00. A confirmação fica aberta
+            até o dia da festa.
+          </p>
+          <p>
+            Escolha se vem e confirme com o seu nome.
+          </p>
+
+          <form class="rsvp" id="formulario" novalidate>
+            <label class="rsvp__field">
+              <span>Nome</span>
+              <input
+                type="text"
+                name="nome"
+                autocomplete="name"
+                required
+                maxlength="80"
+                placeholder="Seu nome"
+              />
+            </label>
+
+            <fieldset class="rsvp__field rsvp__presence">
+              <legend>Você vai?</legend>
+              <div class="rsvp__choices">
+                <label class="rsvp__choice">
+                  <input type="radio" name="vai" value="Vou" required />
+                  <span>Vou</span>
+                </label>
+                <label class="rsvp__choice rsvp__choice--no">
+                  <input type="radio" name="vai" value="Não vou" />
+                  <span>Não vou</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <button class="btn btn--ki rsvp__submit" type="submit">
+              Enviar confirmação
+            </button>
+            <p class="rsvp__status" role="status" hidden></p>
+          </form>
+          <iframe
+            class="rsvp__sink"
+            name="rsvp-sink"
+            title="Envio silencioso da confirmação"
+            hidden
+          ></iframe>
+        </div>
+      </section>
+
+      <!-- <section class="section section--board" id="recados">
+        <div class="section__inner reveal">
+          <p class="section__label">
+            <span class="orb orb--5" aria-hidden="true"
+              ><i></i><i></i><i></i><i></i><i></i
+            ></span>
+            Recados
+          </p>
+          <h2>Mensagem dos guerreiros</h2>
+          <p class="lead">
+            Prometo ler com muito carinho! O campo de recado está no mesmo
+            formulário da confirmação.
+          </p>
+          <a class="btn" href="#formulario">Deixar recadinho</a>
+        </div>
+      </section> -->
+    </main>
+
+    <footer class="footer">
+      <span class="orb orb--7" aria-hidden="true"
+        ><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+      ></span>
+      <p>Dom · 1 ano · 24 de outubro de 2026</p>
+      <p>As esferas foram reunidas. Agora é só aparecer.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
