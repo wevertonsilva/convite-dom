@@ -12,6 +12,11 @@
     },
   };
 
+  // Cole a URL da implantação do Apps Script (termina com /exec).
+  const DRIVE_UPLOAD_URL =
+    "https://script.google.com/macros/s/AKfycbw6N4ZewfFYicJ5qTW0JYocPgCK7aadxfojaiLu0kLThx08z8jqXvSL-uz3qyudFakeyw/exec";
+  const MAX_FILE_BYTES = 8 * 1024 * 1024;
+
   const nav = document.querySelector(".nav");
   const toggle = document.querySelector(".nav__toggle");
   const menu = document.querySelector("#nav-menu");
@@ -138,6 +143,104 @@
 
       rsvpForm.classList.add("is-sent");
       setStatus("Sinal recebido! Obrigado pela confirmação.");
+    });
+  }
+
+  const muralForm = document.querySelector("#mural-form");
+  if (muralForm) {
+    const status = muralForm.querySelector(".rsvp__status");
+    const submit = muralForm.querySelector('button[type="submit"]');
+
+    const setStatus = (message, isError) => {
+      if (!status) return;
+      status.hidden = false;
+      status.textContent = message;
+      status.classList.toggle("is-error", Boolean(isError));
+    };
+
+    const fileToPayload = (file, autor) =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const result = String(reader.result || "");
+          const data = result.split(",")[1];
+          if (!data) {
+            reject(new Error("Não foi possível ler o arquivo."));
+            return;
+          }
+          const prefix = autor ? autor.replace(/\s+/g, "-").slice(0, 30) + "-" : "";
+          resolve({
+            autor,
+            filename: prefix + file.name,
+            mimeType: file.type || "application/octet-stream",
+            data,
+          });
+        };
+        reader.onerror = () => reject(new Error("Falha ao ler o arquivo."));
+        reader.readAsDataURL(file);
+      });
+
+    const sendFile = async (payload) => {
+      const response = await fetch(DRIVE_UPLOAD_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+      });
+      const text = await response.text();
+      let json = {};
+      try {
+        json = JSON.parse(text);
+      } catch (err) {
+        if (!response.ok) throw new Error("O Drive não respondeu.");
+        return;
+      }
+      if (!json.ok) throw new Error(json.error || "Falha no envio.");
+    };
+
+    muralForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const autor = String(new FormData(muralForm).get("autor") || "").trim();
+      const files = Array.from(muralForm.arquivos.files || []);
+
+      if (!DRIVE_UPLOAD_URL) {
+        setStatus(
+          "Falta conectar a pasta do Drive. O passo a passo está no README.",
+          true
+        );
+        return;
+      }
+
+      if (!files.length) {
+        setStatus("Escolha pelo menos uma foto ou um vídeo.", true);
+        return;
+      }
+
+      const tooBig = files.find((file) => file.size > MAX_FILE_BYTES);
+      if (tooBig) {
+        setStatus(
+          `"${tooBig.name}" passa de 8 MB. Envie um arquivo menor ou um vídeo mais curto.`,
+          true
+        );
+        return;
+      }
+
+      submit.disabled = true;
+      try {
+        for (let i = 0; i < files.length; i += 1) {
+          setStatus(`Enviando ${i + 1} de ${files.length}…`);
+          const payload = await fileToPayload(files[i], autor);
+          await sendFile(payload);
+        }
+        muralForm.reset();
+        setStatus("Chegou no álbum! Obrigado por registrar esse momento.");
+      } catch (err) {
+        setStatus(
+          err.message || "Não deu para enviar agora. Tente de novo em instantes.",
+          true
+        );
+      } finally {
+        submit.disabled = false;
+      }
     });
   }
 

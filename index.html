@@ -43,6 +43,7 @@
           <li><a href="#mensagem">Mensagem</a></li>
           <li><a href="#grande-dia">O Grande Dia</a></li>
           <li><a href="#rsvp">Confirmação</a></li>
+          <li><a href="#mural">Fotos</a></li>
         </ul>
       </div>
     </nav>
@@ -139,6 +140,7 @@
                 Condomínio Sol Nascente — Sussuarana<br />
                 Salvador — BA, 41213-000
               </p>
+              <p><b>Atenção: Sem vaga de estacionamento para visitantes</b></p>
             </article>
           </div>
 
@@ -257,22 +259,47 @@
         </div>
       </section>
 
-      <!-- <section class="section section--board" id="recados">
+      <section class="section section--board" id="mural">
         <div class="section__inner reveal">
           <p class="section__label">
             <span class="orb orb--5" aria-hidden="true"
               ><i></i><i></i><i></i><i></i><i></i
             ></span>
-            Recados
+            Mural
           </p>
-          <h2>Mensagem dos guerreiros</h2>
+          <h2>Fotos e vídeos da festa</h2>
           <p class="lead">
-            Prometo ler com muito carinho! O campo de recado está no mesmo
-            formulário da confirmação.
+            Manda um recorte da aventura! O envio é pelo convite, sem criar
+            conta. Os arquivos vão para o álbum da família.
           </p>
-          <a class="btn" href="#formulario">Deixar recadinho</a>
+          <form class="rsvp mural" id="mural-form">
+            <label class="rsvp__field">
+              <span>Seu nome <em>(opcional)</em></span>
+              <input
+                type="text"
+                name="autor"
+                maxlength="60"
+                autocomplete="name"
+                placeholder="Quem está enviando"
+              />
+            </label>
+            <label class="rsvp__field mural__drop">
+              <span>Arquivos</span>
+              <input
+                type="file"
+                name="arquivos"
+                accept="image/*,video/mp4,video/quicktime,video/webm"
+                multiple
+              />
+              <em class="mural__hint">Fotos ou vídeos curtos, até 8 MB cada.</em>
+            </label>
+            <button class="btn btn--ki rsvp__submit" type="submit">
+              Enviar para o álbum
+            </button>
+            <p class="rsvp__status" role="status" hidden></p>
+          </form>
         </div>
-      </section> -->
+      </section>
     </main>
 
     <footer class="footer">

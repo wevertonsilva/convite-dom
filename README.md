@@ -80,7 +80,42 @@ const RSVP_GOOGLE = {
 
 Salve, recarregue o convite e envie um teste. A linha nova tem que aparecer na planilha.
 
-As opções **Eu vou** / **Não vou** precisam ter exatamente esse texto no Google Form.
+As opções **Vou** / **Não vou** precisam ter exatamente esse texto no Google Form.
+
+## Fotos e vídeos no Google Drive (sem login)
+
+O convidado escolhe o arquivo **no convite**. Por trás, um Apps Script na sua conta grava na pasta do Drive. Ninguém precisa entrar no Google.
+
+Limite prático: **8 MB por arquivo** (fotos ok; vídeo só se for curto). Isso é limitação do Apps Script, não do site.
+
+### 1. Pasta no Drive
+
+1. Abra o [Google Drive](https://drive.google.com) e crie a pasta, por exemplo `Festa Dom`.
+2. Abra a pasta. O ID está na URL:
+
+`https://drive.google.com/drive/folders/ESTE_ID`
+
+### 2. Apps Script
+
+1. Abra [script.google.com](https://script.google.com) → **Novo projeto**.
+2. Apague o código padrão e cole o conteúdo de [`drive-upload/Codigo.gs`](drive-upload/Codigo.gs).
+3. Troque `COLE_O_ID_DA_PASTA_AQUI` pelo ID da pasta.
+4. **Implantar** → **Nova implantação**.
+5. Tipo: **App da Web**.
+6. **Executar como:** Eu (sua conta).
+7. **Quem tem acesso:** Qualquer pessoa.
+8. Autorize o Drive quando o Google pedir.
+9. Copie a URL da implantação (termina com `/exec`).
+
+### 3. Colar no site
+
+No [`script.js`](script.js):
+
+```javascript
+const DRIVE_UPLOAD_URL = "https://script.google.com/macros/s/XXXX/exec";
+```
+
+Envie uma foto de teste pelo convite e confira se ela aparece na pasta.
 
 ## Publicar de graça no GitHub Pages
 
