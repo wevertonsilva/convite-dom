@@ -278,4 +278,43 @@
   } else {
     document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-in"));
   }
+
+  const audio = document.querySelector("#tema");
+  const player = document.querySelector(".player");
+  const playBtn = document.querySelector(".player__btn");
+  const playLabel = playBtn && playBtn.querySelector(".player__label");
+
+  if (audio && player && playBtn && playLabel) {
+    const setPlaying = (playing) => {
+      playBtn.classList.toggle("is-on", playing);
+      playBtn.setAttribute("aria-pressed", String(playing));
+      playLabel.textContent = playing ? "Pausar tema" : "Tocar tema";
+    };
+
+    const tryPlay = () => {
+      audio.volume = 0.42;
+      return audio.play().then(() => setPlaying(true));
+    };
+
+    tryPlay().catch(() => setPlaying(false));
+
+    playBtn.addEventListener("click", async () => {
+      try {
+        if (audio.paused) {
+          await tryPlay();
+        } else {
+          audio.pause();
+          setPlaying(false);
+        }
+      } catch (err) {
+        setPlaying(false);
+        playLabel.textContent = "Coloque o áudio em assets/tema.mp3";
+      }
+    });
+
+    audio.addEventListener("ended", () => setPlaying(false));
+    audio.addEventListener("error", () => {
+      playLabel.textContent = "Falta o arquivo do tema";
+    });
+  }
 })();

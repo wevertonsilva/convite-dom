@@ -5,6 +5,7 @@ Site estático de uma página para o aniversário do Dom (24 de outubro de 2026)
 ## Trocar foto e cores
 
 - **Foto:** substitua [`assets/foto_perfil.jpeg`](assets/foto_perfil.jpeg) ou atualize o `src` da foto no [`index.html`](index.html).
+- **Música:** coloque o arquivo em [`assets/tema.mp3`](assets/tema.mp3). O convite tenta tocar sozinho; se o navegador bloquear, o botão **Tocar tema** continua no canto da tela.
 - **Cores e fontes:** edite as variáveis no começo de [`styles.css`](styles.css):
 
 ```css
