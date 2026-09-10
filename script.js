@@ -16,6 +16,21 @@
   const DRIVE_UPLOAD_URL =
     "https://script.google.com/macros/s/AKfycbw6N4ZewfFYicJ5qTW0JYocPgCK7aadxfojaiLu0kLThx08z8jqXvSL-uz3qyudFakeyw/exec";
   const MAX_FILE_BYTES = 8 * 1024 * 1024;
+  const MURAL_OPENS_ON = "2026-10-24";
+
+  const todayInBahia = () =>
+    new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Bahia",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(new Date());
+
+  if (todayInBahia() >= MURAL_OPENS_ON) {
+    document.querySelectorAll("[data-mural-gate]").forEach((el) => {
+      el.hidden = false;
+    });
+  }
 
   const nav = document.querySelector(".nav");
   const toggle = document.querySelector(".nav__toggle");

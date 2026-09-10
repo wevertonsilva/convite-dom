@@ -70,7 +70,9 @@
           <li><a href="#mensagem">Mensagem</a></li>
           <li><a href="#grande-dia">O Grande Dia</a></li>
           <li><a href="#rsvp">Confirmação</a></li>
-          <li><a href="#mural">Fotos</a></li>
+          <li hidden data-mural-gate>
+            <a href="#mural">Fotos</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -286,7 +288,7 @@
         </div>
       </section>
 
-      <section class="section section--board" id="mural">
+      <section class="section section--board" id="mural" hidden data-mural-gate>
         <div class="section__inner reveal">
           <p class="section__label">
             <span class="orb orb--6" aria-hidden="true"
